@@ -1,0 +1,11 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect /index.html to /
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Remove trailing slashes (optional, for consistency)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [R=301,L]
+

@@ -1,0 +1,4 @@
+# Netlify redirects for clean URLs
+# Redirect /index.html to /
+/index.html    /    301
+
