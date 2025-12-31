@@ -7,22 +7,28 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="pixelated-theme">
     <div class="container">
+        <!-- HEADER -->
         <header class="pixel-header">
-            <img src="images/cloudlogo-transparant.png" alt="ConHacks Cloud Logo" class="cloud-logo">
-            <img src="images/conhacks2026-banner.png" alt="ConHacks 2026 Banner" class="banner">
-            <p class="pixel-subtitle">36 Hours of Innovation</p>
-            <a href="https://conestogacomputingsociety.com" class="pixel-org-link">
-                <p class="pixel-org">by Conestoga Computing Society</p>
-            </a>
-            <p class="pixel-dates">March 27-29, 2026</p>
+            <p class="pixel-presents"><a href="https://conestogacomputingsociety.com/" target="_blank" rel="noopener noreferrer" class="pixel-presents-link">Conestoga Computing Society (CCS) presents</a></p>
+            
+            <div class="logo-container">
+                <img src="images/cloudlogo-transparant.png" alt="ConHacks Cloud Logo" class="cloud-logo">
+                <img src="images/conhacks2026-banner.png" alt="ConHacks 2026 Banner" class="banner">
+            </div>
+            
+            <div class="header-text-content">
+                <p class="pixel-dates">March 27-29, 2026</p>
+                <p class="pixel-venue">Conestoga College, Waterloo Campus</p>
+            </div>
         </header>
 
         <main class="pixel-content">
+            <!-- CTA -->
             <section class="cta-section">
                 <button class="pixel-button cta-main disabled" disabled>
                     APPLY NOW
@@ -32,42 +38,249 @@
                 </p>
             </section>
 
+            <!-- WELCOME / ABOUT -->
             <section class="pixel-section">
-                <h2 class="pixel-heading">EVENT DETAILS</h2>
+                <h2 class="pixel-heading">CONHACKS 2026: SKY'S THE LIMIT</h2>
                 <div class="pixel-info-box">
-                    <p class="pixel-text"><strong>Date:</strong> March 27-29, 2026</p>
-                    <p class="pixel-text"><strong>Time:</strong> Friday 7 PM - Sunday 11 PM</p>
-                    <p class="pixel-text"><strong>Hacking Time:</strong> Fri, 9 PM - Sun, 9 AM (36 hours)</p>
-                    <p class="pixel-text"><strong>Venue:</strong> Conestoga College, Waterloo Campus</p>
-                    <p class="pixel-text"><strong>Address:</strong> 108 University Ave E, Waterloo, ON N2J 2W2</p>
+                    <p class="pixel-text">
+                        Welcome to ConHacks 2026, the annual hackathon hosted by the <a href="https://conestogacomputingsociety.com/" target="_blank" rel="noopener noreferrer" class="ccs-link">Conestoga Computing Society (CCS)</a>. 
+                        For 36 hours, we are turning the Waterloo Campus into a retro-futuristic dreamscape. 
+                        Whether you are new to coding or a full-stack veteran, this is your platform to learn, build, and create.
+                    </p>
+                    <div class="challenge-highlight">
+                        <p class="pixel-text">
+                            <strong>Hacking Challenge: Open</strong><br>
+                            No specific theme, build whatever you dream up!
+                        </p>
+                    </div>
                 </div>
             </section>
 
+            <!-- WHY JOIN? -->
             <section class="pixel-section">
-                <h2 class="pixel-heading">SCHEDULE</h2>
-                <div class="pixel-info-box">
-                    <p class="pixel-text"><strong>Opening Ceremony:</strong> Friday, 8 PM</p>
-                    <p class="pixel-text"><strong>Judging:</strong> Sunday, 9 - 11 AM</p>
-                    <p class="pixel-text"><strong>Closing Ceremony:</strong> Sunday, 11 AM</p>
+                <h2 class="pixel-heading">WHY JOIN?</h2>
+                <div class="grid-2-col">
+                    <div class="pixel-info-box">
+                        <h3 class="pixel-subheading">Beginner Friendly</h3>
+                        <p class="pixel-text">Our "Starter Pack" workshops will get your environment set up in minutes and ready to code anything. Mentors will be available to help you glide through any problems.</p>
+                    </div>
+                    <div class="pixel-info-box">
+                        <h3 class="pixel-subheading">Free Food & Swag</h3>
+                        <p class="pixel-text">Participation gets you free food for the entire 36 hours (breakfast, lunch, dinner, snacks, coffee, and more). Plus ConHacks 2026 themed merch, stickers, etc.</p>
+                    </div>
+                    <div class="pixel-info-box">
+                        <h3 class="pixel-subheading">Career Boost</h3>
+                        <p class="pixel-text">Connect with fellow hackers, sponsors, mentors, and the CCS team. Get a project to display on your resume or portfolio.</p>
+                    </div>
+                    <div class="pixel-info-box">
+                        <h3 class="pixel-subheading">Learn & Apply</h3>
+                        <p class="pixel-text">Apply classroom concepts to real projects. Build, experiment, and learn by doing in a chill, lo-fi environment designed for flow state.</p>
+                    </div>
                 </div>
             </section>
 
-            <section class="pixel-section pixel-section-about">
-                <h2 class="pixel-heading">ABOUT</h2>
+            <!-- SCHEDULE -->
+            <section class="pixel-section">
+                <h2 class="pixel-heading">THE SCHEDULE</h2>
+                <p class="pixel-text center-text">Mark your calendars. 36 Hours of Innovation.</p>
+                
+                <div class="schedule-container">
+                    <!-- Friday -->
+                    <div class="pixel-info-box schedule-day">
+                        <h3 class="pixel-subheading">Friday, March 27</h3>
+                        <ul class="schedule-list">
+                            <li><span class="time">7:00 PM</span> <span class="event">Doors Open & Check-In</span></li>
+                            <li><span class="time">8:00 PM</span> <span class="event">Opening Ceremony</span></li>
+                            <li><span class="time">9:00 PM</span> <span class="event">Hacking Begins</span></li>
+                            <li><span class="time">9:30 PM</span> <span class="event">Beginner Workshop: Zero to Hero</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Saturday -->
+                    <div class="pixel-info-box schedule-day">
+                        <h3 class="pixel-subheading">Saturday, March 28</h3>
+                        <ul class="schedule-list">
+                            <li><span class="time">All Day</span> <span class="event">Hacking, Mini-Events, Workshops, Mentorship</span></li>
+                            <li><span class="time">Midnight</span> <span class="event">Midnight Snack & Activity</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sunday -->
+                    <div class="pixel-info-box schedule-day">
+                        <h3 class="pixel-subheading">Sunday, March 29</h3>
+                        <ul class="schedule-list">
+                            <li><span class="time">9:00 AM</span> <span class="event">Hacking Ends (Submission Deadline)</span></li>
+                            <li><span class="time">9:00 AM - 11:00 AM</span> <span class="event">Judging Expo</span></li>
+                            <li><span class="time">11:00 AM</span> <span class="event">Closing Ceremony & Awards</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PRIZES -->
+            <section class="pixel-section">
+                <h2 class="pixel-heading">PRIZES ($3,000 CAD)</h2>
+                
+                <div class="prizes-grid">
+                    <!-- 1st Place -->
+                    <div class="pixel-info-box prize-card gold">
+                        <h3 class="pixel-subheading">1st Place</h3>
+                        <p class="prize-amount">$1,200 CAD</p>
+                        <p class="pixel-text small">Split among team. Trophies. Certificate. Bragging rights. Free ticket to ConHacks 2027. Access to CCS exec opportunities.</p>
+                    </div>
+
+                    <!-- 2nd Place -->
+                    <div class="pixel-info-box prize-card silver">
+                        <h3 class="pixel-subheading">2nd Place</h3>
+                        <p class="prize-amount">$800 CAD</p>
+                        <p class="pixel-text small">Split among team. Certificate. Bragging rights. Free ticket to ConHacks 2027. Access to CCS exec opportunities.</p>
+                    </div>
+
+                    <!-- 3rd Place -->
+                    <div class="pixel-info-box prize-card bronze">
+                        <h3 class="pixel-subheading">3rd Place</h3>
+                        <p class="prize-amount">$400 CAD</p>
+                        <p class="pixel-text small">Split among team. Certificate. Bragging rights. Free ticket to ConHacks 2027. Access to CCS exec opportunities.</p>
+                    </div>
+                </div>
+
+                <h3 class="pixel-heading secondary">CATEGORY PRIZES</h3>
+                <div class="prizes-grid">
+                    <div class="pixel-info-box prize-card category">
+                        <h3 class="pixel-subheading">Best Beginner Hack</h3>
+                        <p class="prize-amount">$200 CAD</p>
+                        <p class="pixel-text small">Outstanding project created entirely by a team of first-time hackers.</p>
+                    </div>
+                    <div class="pixel-info-box prize-card category">
+                        <h3 class="pixel-subheading">Best UI/UX</h3>
+                        <p class="prize-amount">$200 CAD</p>
+                        <p class="pixel-text small">Most intuitive design, seamless user flow, and superior visual polish.</p>
+                    </div>
+                    <div class="pixel-info-box prize-card category">
+                        <h3 class="pixel-subheading">Best Tech Complexity</h3>
+                        <p class="prize-amount">$200 CAD</p>
+                        <p class="pixel-text small">Most impressive code, algorithm, or backend engineering.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- REQUIREMENTS -->
+            <section class="pixel-section">
+                <h2 class="pixel-heading">REQUIREMENTS</h2>
                 <div class="pixel-info-box">
-                    <p class="pixel-text">
-                        ConHacks 2026 is Conestoga Computing Society's annual hackathon event. 
-                        Join us for 36 hours of coding, collaboration, and innovation. Whether 
-                        you're a beginner or an experienced developer, this is your chance to 
-                        build something amazing, learn new skills, and connect with fellow 
-                        tech enthusiasts.
+                    <p class="pixel-text">To qualify for judging and prizes, teams must adhere to:</p>
+                    <ul class="requirements-list pixel-text">
+                        <li><strong>Devpost Submission:</strong> Project page created by Sunday, 9:00 AM.</li>
+                        <li><strong>Code Repository:</strong> Public GitHub/GitLab link. Must be created after Fri 9 PM.</li>
+                        <li><strong>Video Demo:</strong> Max 3 mins. Show what it does, problem solved, and importance.</li>
+                        <li><strong>Project Description:</strong> Problem, solution, how you built it, challenges, what's next.</li>
+                        <li><strong>Team Size:</strong> 1–4 people.</li>
+                    </ul>
+                    <p class="pixel-text highlight-text">
+                        The Sky's the Limit. Web app, mobile app, hardware, game, terminal tool - if it solves a problem through software, it counts.
                     </p>
-                    <p class="pixel-text">
-                        <strong>Applications:</strong> Up to 250 participants (first come, first serve)
-                    </p>
-                    <p class="pixel-text">
-                        <strong>Theme:</strong> No theme - build whatever you want!
-                    </p>
+                </div>
+            </section>
+
+             <!-- JUDGING -->
+             <section class="pixel-section">
+                <h2 class="pixel-heading">JUDGING</h2>
+                
+                <h3 class="pixel-subheading center-text">THE JUDGES</h3>
+                <div class="grid-2-col judges-grid">
+                    <div class="pixel-info-box judge-card">
+                        <h3 class="pixel-subheading">David Allison</h3>
+                        <p class="pixel-text">Chair, School of Applied Computer Science & Information Technology, Conestoga College</p>
+                    </div>
+                    <div class="pixel-info-box judge-card">
+                        <h3 class="pixel-subheading">Anish Reddy</h3>
+                        <p class="pixel-text">President, <a href="https://conestogacomputingsociety.com/" target="_blank" rel="noopener noreferrer" class="ccs-link">Conestoga Computing Society (CCS)</a>; Intern, Geotab</p>
+                    </div>
+                    <div class="pixel-info-box judge-card">
+                        <h3 class="pixel-subheading">TBD</h3>
+                        <p class="pixel-text">To be announced</p>
+                    </div>
+                    <div class="pixel-info-box judge-card">
+                        <h3 class="pixel-subheading">TBD</h3>
+                        <p class="pixel-text">To be announced</p>
+                    </div>
+                    <div class="pixel-info-box judge-card">
+                        <h3 class="pixel-subheading">TBD</h3>
+                        <p class="pixel-text">To be announced</p>
+                    </div>
+                    <div class="pixel-info-box judge-card">
+                        <h3 class="pixel-subheading">TBD</h3>
+                        <p class="pixel-text">To be announced</p>
+                    </div>
+                </div>
+
+                <h3 class="pixel-subheading center-text mt-20">CRITERIA</h3>
+                <div class="pixel-info-box">
+                    <ul class="criteria-list">
+                        <li>
+                            <span class="criteria-title">Technical Complexity (30%)</span>
+                            <span class="criteria-desc">Custom backend? Complex APIs? New stack? We want clean, functional, impressive engineering.</span>
+                        </li>
+                        <li>
+                            <span class="criteria-title">Innovation & Creativity (30%)</span>
+                            <span class="criteria-desc">Unique idea? Pushing boundaries? Novel solutions?</span>
+                        </li>
+                        <li>
+                            <span class="criteria-title">Design & Polish (20%)</span>
+                            <span class="criteria-desc">UX/UI matter. Is the design sleek, intuitive, and cohesive?</span>
+                        </li>
+                        <li>
+                            <span class="criteria-title">The Pitch (20%)</span>
+                            <span class="criteria-desc">3 minutes to sell your dream. Articulate the problem, solution, and impact. Demo is crucial.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- RULES -->
+            <section class="pixel-section">
+                <h2 class="pixel-heading">RULES</h2>
+                <div class="pixel-info-box">
+                    <p class="pixel-text center-text"><strong>Be Cool. Be Kind. Hack Fair.</strong></p>
+                    <ol class="rules-list pixel-text">
+                        <li><strong>Code of Conduct:</strong> Strict adherence required. No harassment of any kind.</li>
+                        <li><strong>Fresh Code Policy:</strong> All code must be written during the event (Fri 9 PM - Sun 9 AM). No pre-finished projects.</li>
+                        <li><strong>Intellectual Property:</strong> You own what you build. CCS claims no rights.</li>
+                        <li><strong>Team Size:</strong> Up to 4 members. Team formation session available.</li>
+                        <li><strong>Venue Rules:</strong> Respect the campus. Clean up trash. Treat equipment with care.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- MEET THE ORGANIZERS -->
+            <section class="pixel-section">
+                <h2 class="pixel-heading">MEET THE ORGANIZERS</h2>
+                <div class="organizers-grid">
+                    <div class="pixel-info-box organizer-card">
+                        <div class="organizer-photo-placeholder"></div>
+                        <h3 class="pixel-subheading">TBD</h3>
+                        <a href="#" class="organizer-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                    <div class="pixel-info-box organizer-card">
+                        <div class="organizer-photo-placeholder"></div>
+                        <h3 class="pixel-subheading">TBD</h3>
+                        <a href="#" class="organizer-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                    <div class="pixel-info-box organizer-card">
+                        <div class="organizer-photo-placeholder"></div>
+                        <h3 class="pixel-subheading">TBD</h3>
+                        <a href="#" class="organizer-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                    <div class="pixel-info-box organizer-card">
+                        <div class="organizer-photo-placeholder"></div>
+                        <h3 class="pixel-subheading">TBD</h3>
+                        <a href="#" class="organizer-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                    <div class="pixel-info-box organizer-card">
+                        <div class="organizer-photo-placeholder"></div>
+                        <h3 class="pixel-subheading">TBD</h3>
+                        <a href="#" class="organizer-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
                 </div>
             </section>
 
@@ -82,9 +295,8 @@
         </main>
 
         <footer class="pixel-footer">
-            <p class="pixel-text small">© 2026 Conestoga Computing Society | conhacks.io</p>
+            <p class="pixel-text small">© 2026 <a href="https://conestogacomputingsociety.com/" target="_blank" rel="noopener noreferrer" class="ccs-link">Conestoga Computing Society</a> | conhacks.io</p>
         </footer>
     </div>
 </body>
 </html>
-
