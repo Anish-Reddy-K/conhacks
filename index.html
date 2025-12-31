@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body class="pixelated-theme">
     <div class="container">
@@ -17,8 +17,8 @@
             <p class="pixel-presents"><a href="https://conestogacomputingsociety.com/" target="_blank" rel="noopener noreferrer" class="pixel-presents-link">Conestoga Computing Society (CCS) presents</a></p>
             
             <div class="logo-container">
-                <img src="images/cloudlogo-transparant.png" alt="ConHacks Cloud Logo" class="cloud-logo">
-                <img src="images/conhacks2026-banner.png" alt="ConHacks 2026 Banner" class="banner">
+                <img src="static/images/cloudlogo-transparant.png" alt="ConHacks Cloud Logo" class="cloud-logo">
+                <img src="static/images/conhacks2026-banner.png" alt="ConHacks 2026 Banner" class="banner">
             </div>
             
             <div class="header-text-content">
@@ -28,14 +28,31 @@
         </header>
 
         <main class="pixel-content">
-            <!-- CTA -->
+            <!-- EMAIL NOTIFICATION -->
             <section class="cta-section">
-                <button class="pixel-button cta-main disabled" disabled>
-                    APPLY NOW
-                </button>
-                <p class="coming-soon-note pixel-text">
-                    Applications will open on January 14th.
+                <p class="notification-heading pixel-text">
+                    Get notified when applications open
                 </p>
+                <form id="email-form" class="email-form">
+                    <div class="email-input-wrapper">
+                        <input 
+                            type="email" 
+                            id="email-input" 
+                            name="email" 
+                            placeholder="Enter your email" 
+                            class="pixel-input"
+                            required
+                            maxlength="254"
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                            autocomplete="email"
+                            spellcheck="false"
+                        >
+                        <button type="submit" class="pixel-button submit-btn">
+                            SUBMIT
+                        </button>
+                    </div>
+                    <div id="form-message" class="form-message"></div>
+                </form>
             </section>
 
             <!-- WELCOME / ABOUT -->
@@ -285,12 +302,29 @@
             </section>
 
             <section class="pixel-section pixel-section-center">
-                <button class="pixel-button cta-main disabled" disabled>
-                    APPLY NOW
-                </button>
-                <p class="coming-soon-note pixel-text">
-                    Applications will open on January 14th.
+                <p class="notification-heading pixel-text">
+                    Get notified when applications open
                 </p>
+                <form id="email-form-bottom" class="email-form">
+                    <div class="email-input-wrapper">
+                        <input 
+                            type="email" 
+                            id="email-input-bottom" 
+                            name="email" 
+                            placeholder="Enter your email" 
+                            class="pixel-input"
+                            required
+                            maxlength="254"
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                            autocomplete="email"
+                            spellcheck="false"
+                        >
+                        <button type="submit" class="pixel-button submit-btn">
+                            SUBMIT
+                        </button>
+                    </div>
+                    <div id="form-message-bottom" class="form-message"></div>
+                </form>
             </section>
         </main>
 
@@ -298,5 +332,7 @@
             <p class="pixel-text small">© 2026 <a href="https://conestogacomputingsociety.com/" target="_blank" rel="noopener noreferrer" class="ccs-link">Conestoga Computing Society</a> | conhacks.io</p>
         </footer>
     </div>
+
+    <script src="static/js/main.js"></script>
 </body>
 </html>

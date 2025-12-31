@@ -441,6 +441,123 @@ body::before {
     letter-spacing: 1px;
 }
 
+/* Email Form Styles */
+.notification-heading {
+    font-size: 18px;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.email-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.email-input-wrapper {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.pixel-input {
+    flex: 1;
+    min-width: 250px;
+    padding: 18px 24px;
+    background: rgba(10, 10, 20, 0.9);
+    border: 4px solid #D1BAFB;
+    color: #FFF;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    box-shadow: 6px 6px 0px #000;
+    transition: all 0.1s;
+    outline: none;
+    height: 60px;
+    box-sizing: border-box;
+}
+
+.pixel-input::placeholder {
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.pixel-input:focus {
+    border-color: #D1BAFB;
+    box-shadow: 8px 8px 0px #000;
+    background: rgba(10, 10, 20, 1);
+    outline: none;
+}
+
+.pixel-input:invalid:not(:placeholder-shown),
+.pixel-input.invalid {
+    border-color: #ff6b6b;
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.submit-btn {
+    padding: 18px 36px;
+    background: #D1BAFB;
+    border: 4px solid #fff;
+    color: #000;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 6px 6px 0px #000;
+    white-space: nowrap;
+    height: 60px;
+    box-sizing: border-box;
+    transition: opacity 0.2s;
+}
+
+.pixel-button.submit-btn:hover {
+    transform: none !important;
+    box-shadow: 6px 6px 0px #000 !important;
+    background: #D1BAFB !important;
+    opacity: 0.9 !important;
+}
+
+.pixel-button.submit-btn:active {
+    transform: none !important;
+    box-shadow: 6px 6px 0px #000 !important;
+}
+
+.submit-btn:disabled {
+    background: #282a36;
+    color: #7D9ADD;
+    border-color: #7D9ADD;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 4px 4px 0px #000;
+    opacity: 0.8;
+}
+
+.form-message {
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    min-height: 24px;
+}
+
+.form-message.success {
+    color: #BEEBF4;
+}
+
+.form-message.error {
+    color: #ff6b6b;
+}
+
 /* Requirements & Rules Lists */
 .requirements-list, .rules-list, .criteria-list {
     margin-left: 20px;
@@ -519,6 +636,23 @@ body::before {
         font-size: 18px;
         padding: 20px 30px;
         width: 100%;
+    }
+
+    .email-input-wrapper {
+        flex-direction: column;
+    }
+
+    .pixel-input {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    .notification-heading {
+        font-size: 14px;
     }
 
     .schedule-list .time {
