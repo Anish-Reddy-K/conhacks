@@ -278,6 +278,23 @@ body::before {
     gap: 25px;
 }
 
+/* Sponsors */
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.sponsor-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    min-height: 150px;
+}
+
 .organizer-card {
     text-align: center;
     display: flex;
@@ -679,6 +696,11 @@ body::before {
     }
 
     .organizers-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+
+    .sponsors-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 20px;
     }
