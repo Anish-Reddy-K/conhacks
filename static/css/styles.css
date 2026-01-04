@@ -292,7 +292,25 @@ body::before {
     align-items: center;
     justify-content: center;
     padding: 30px;
-    min-height: 150px;
+    aspect-ratio: 1;
+}
+
+.sponsor-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.2s;
+}
+
+.sponsor-link:hover {
+    transform: scale(1.05);
+}
+
+.sponsor-logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: contain;
 }
 
 .organizer-card {
@@ -375,7 +393,7 @@ body::before {
 .schedule-list .time {
     font-weight: bold;
     color: #D1BAFB;
-    width: 140px; /* Wider for better alignment */
+    width: 200px; /* Wider for better alignment */
     flex-shrink: 0;
 }
 
