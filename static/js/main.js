@@ -172,5 +172,24 @@ function showMessage(element, text, type) {
 document.addEventListener('DOMContentLoaded', () => {
     setupForm('email-form', 'email-input', 'form-message');
     setupForm('email-form-bottom', 'email-input-bottom', 'form-message-bottom');
+
+    // Smooth scroll offset for fixed nav
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const navHeight = document.querySelector('.pixel-nav').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
 });
 

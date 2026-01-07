@@ -11,9 +11,20 @@
     <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body class="pixelated-theme">
+    <!-- NAVIGATION -->
+    <nav class="pixel-nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-link">HOME</a>
+            <a href="#sponsors" class="nav-link">SPONSORS</a>
+            <a href="#community-partners" class="nav-link">PARTNERS</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <a href="#apply" class="nav-link nav-cta">APPLY NOW</a>
+        </div>
+    </nav>
+
     <div class="container">
         <!-- HEADER -->
-        <header class="pixel-header">
+        <header class="pixel-header" id="home">
             <p class="pixel-presents"><a href="https://conestogacomputingsociety.com/" target="_blank" rel="noopener noreferrer" class="pixel-presents-link">Conestoga Computing Society (CCS) presents</a></p>
             
             <div class="logo-container">
@@ -28,8 +39,8 @@
         </header>
 
         <main class="pixel-content">
-            <!-- EMAIL NOTIFICATION -->
-            <section class="cta-section">
+            <!-- EMAIL NOTIFICATION / APPLY -->
+            <section class="cta-section" id="apply">
                 <p class="notification-heading pixel-text">
                     Get notified when applications open
                 </p>
@@ -193,12 +204,13 @@
             </section>
 
             <!-- SPONSORS -->
-            <section class="pixel-section">
+            <section class="pixel-section" id="sponsors">
                 <h2 class="pixel-heading">SPONSORS</h2>
                 <div class="sponsors-grid">
                     <div class="pixel-info-box sponsor-card">
-                        <a href="https://conestogacomputingsociety.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link">
+                        <a href="https://conestogacomputingsociety.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link" title="Conestoga Computing Society">
                             <img src="static/images/ccs-logo.png" alt="Conestoga Computing Society" class="sponsor-logo">
+                            <span class="sponsor-tooltip">Conestoga Computing Society</span>
                         </a>
                     </div>
                     <div class="pixel-info-box sponsor-card">
@@ -221,6 +233,25 @@
                         <h3 class="pixel-subheading">TBD</h3>
                         <p class="pixel-text">To be announced</p>
                     </div>
+                </div>
+            </section>
+
+            <!-- COMMUNITY PARTNERS -->
+            <section class="pixel-section" id="community-partners">
+                <h2 class="pixel-heading">COMMUNITY PARTNERS</h2>
+                <div class="partners-grid">
+                    <a href="https://gdg.community.dev/gdg-on-campus-conestoga-college-waterloo-campus-waterloo-canada/" target="_blank" rel="noopener noreferrer" class="pixel-info-box partner-card" title="GDG on Campus - Conestoga College">
+                        <img src="comminuty partners/gdg.webp" alt="GDG on Campus - Conestoga College" class="partner-logo partner-logo-tall">
+                        <span class="partner-tooltip">GDG on Campus - Conestoga College</span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/itclub-conestoga/" target="_blank" rel="noopener noreferrer" class="pixel-info-box partner-card" title="IT Club - Conestoga College">
+                        <img src="comminuty partners/it club.webp" alt="IT Club - Conestoga College" class="partner-logo partner-logo-wide">
+                        <span class="partner-tooltip">IT Club - Conestoga College</span>
+                    </a>
+                    <a href="https://www.conestogastudents.com/organisation/6465/" target="_blank" rel="noopener noreferrer" class="pixel-info-box partner-card" title="Conestoga Cyber Security Association (CCSA)">
+                        <img src="comminuty partners/ccsa.webp" alt="Conestoga Cyber Security Association (CCSA)" class="partner-logo partner-logo-square">
+                        <span class="partner-tooltip">Conestoga Cyber Security Association (CCSA)</span>
+                    </a>
                 </div>
             </section>
 
@@ -309,6 +340,37 @@
                         <li><strong>Team Size:</strong> Up to 4 members. Team formation session available.</li>
                         <li><strong>Venue Rules:</strong> Respect the campus. Clean up trash. Treat equipment with care.</li>
                     </ol>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="pixel-section" id="faq">
+                <h2 class="pixel-heading">FAQ</h2>
+                <div class="faq-container">
+                    <div class="pixel-info-box faq-item">
+                        <h3 class="pixel-subheading faq-question">What is a hackathon?</h3>
+                        <p class="pixel-text">A hackathon is an event where people come together to build creative software or hardware projects in a short amount of time. It's not about "hacking" in the security sense—it's about rapid prototyping and innovation!</p>
+                    </div>
+                    <div class="pixel-info-box faq-item">
+                        <h3 class="pixel-subheading faq-question">Do I need coding experience?</h3>
+                        <p class="pixel-text">Not at all! ConHacks is beginner-friendly. We offer "Starter Pack" workshops to help you set up your environment and learn the basics. Mentors will be available throughout the event to guide you.</p>
+                    </div>
+                    <div class="pixel-info-box faq-item">
+                        <h3 class="pixel-subheading faq-question">Who can participate?</h3>
+                        <p class="pixel-text">ConHacks is open to all Conestoga College students. Whether you're studying computer science, business, design, or any other field—everyone is welcome!</p>
+                    </div>
+                    <div class="pixel-info-box faq-item">
+                        <h3 class="pixel-subheading faq-question">Do I need a team?</h3>
+                        <p class="pixel-text">You can come solo or with a team of up to 4 people. If you don't have a team, no worries! We'll have a team formation session on Friday night to help you find teammates.</p>
+                    </div>
+                    <div class="pixel-info-box faq-item">
+                        <h3 class="pixel-subheading faq-question">What should I bring?</h3>
+                        <p class="pixel-text">Bring your laptop, charger, student ID, and any personal items you need for an overnight stay (toiletries, sleeping bag/blanket if you plan to rest). We provide food, drinks, WiFi, and power outlets!</p>
+                    </div>
+                    <div class="pixel-info-box faq-item">
+                        <h3 class="pixel-subheading faq-question">Is it free?</h3>
+                        <p class="pixel-text">Yes! ConHacks 2026 is completely free for all participants. We cover food, swag, and everything else.</p>
+                    </div>
                 </div>
             </section>
 
