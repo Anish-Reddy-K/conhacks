@@ -350,6 +350,7 @@ body::before {
     justify-content: center;
     padding: 30px;
     min-height: 180px;
+    transition: border-color 0.2s, transform 0.2s;
 }
 
 /* Wide sponsor cards for rectangular logos */
@@ -380,10 +381,10 @@ body::before {
     display: block;
     width: 100%;
     height: 100%;
-    transition: transform 0.2s;
 }
 
-.sponsor-link:hover {
+.sponsor-card:hover {
+    border-color: #D1BAFB;
     transform: scale(1.05);
 }
 
@@ -418,7 +419,7 @@ body::before {
 }
 
 /* Sponsor & Partner Tooltips */
-.sponsor-link,
+.sponsor-card,
 .partner-card {
     position: relative;
 }
@@ -426,7 +427,7 @@ body::before {
 .sponsor-tooltip,
 .partner-tooltip {
     position: absolute;
-    bottom: 0;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%) translateY(100%);
     background: rgba(10, 10, 20, 0.95);
@@ -444,7 +445,7 @@ body::before {
     pointer-events: none;
 }
 
-.sponsor-link:hover .sponsor-tooltip,
+.sponsor-card:hover .sponsor-tooltip,
 .partner-card:hover .partner-tooltip {
     opacity: 1;
     visibility: visible;
@@ -467,19 +468,19 @@ body::before {
     padding: 25px;
     min-height: 220px;
     text-decoration: none;
-    transition: all 0.2s;
+    transition: border-color 0.2s, transform 0.2s;
     cursor: pointer;
 }
 
 .partner-card:hover {
     border-color: #D1BAFB;
+    transform: scale(1.05);
 }
 
 .partner-logo {
     max-width: 100%;
     height: auto;
     object-fit: contain;
-    transition: transform 0.2s;
 }
 
 .partner-logo-tall {
@@ -496,6 +497,19 @@ body::before {
 .partner-logo-square {
     max-height: 140px;
     max-width: 140px;
+}
+
+/* Partner cards for horizontal/rectangular logos */
+.partner-card-wide {
+    background: #ffffff;
+    padding: 25px 30px;
+}
+
+.partner-logo-horizontal {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    max-height: 100px;
 }
 
 .organizer-card {
@@ -969,6 +983,10 @@ body::before {
 
     .partner-logo-wide {
         max-width: 200px;
+    }
+
+    .partner-logo-horizontal {
+        max-width: 180px;
     }
 
     .sponsor-tooltip,
