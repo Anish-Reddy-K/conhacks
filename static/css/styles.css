@@ -351,6 +351,7 @@ body::before {
     padding: 30px;
     min-height: 180px;
     transition: border-color 0.2s, transform 0.2s;
+    margin-bottom: 0;
 }
 
 /* Wide sponsor cards for rectangular logos */
@@ -375,6 +376,25 @@ body::before {
     height: auto;
     max-height: 80px;
     object-fit: contain;
+}
+
+/* Sponsor card where image fills the space (image has built-in background) */
+.sponsor-card-fill {
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+.sponsor-card-fill .sponsor-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.sponsor-logo-fill {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .sponsor-link {
