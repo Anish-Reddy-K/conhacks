@@ -54,7 +54,7 @@ function loadEnv($path = null) {
 // Load environment variables
 loadEnv();
 
-// Set headers
+// Set headers first (before any output)
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
@@ -69,7 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 // Only allow POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode(['success' => false, 'message' => 'Invalid request method']);
+    echo json_encode([
+        'success' => false, 
+        'message' => 'Invalid request method. Expected POST, got: ' . $_SERVER['REQUEST_METHOD']
+    ]);
     exit;
 }
 

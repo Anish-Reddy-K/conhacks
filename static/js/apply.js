@@ -621,6 +621,19 @@
 
             lastSubmissionTime = Date.now();
 
+            // Check if response is ok before parsing JSON
+            if (!response.ok) {
+                let errorMessage = 'Submission failed. Please try again.';
+                try {
+                    const errorData = await response.json();
+                    errorMessage = errorData.message || errorMessage;
+                } catch (e) {
+                    // If JSON parsing fails, use status text
+                    errorMessage = `Server error: ${response.status} ${response.statusText}`;
+                }
+                throw new Error(errorMessage);
+            }
+
             const result = await response.json();
 
             if (result.success) {
@@ -645,7 +658,8 @@
             }
         } catch (error) {
             console.error('Submission error:', error);
-            showFormMessage(messageEl, 'Failed to connect to server. Please try again.', 'error');
+            const errorMsg = error.message || 'Failed to connect to server. Please try again.';
+            showFormMessage(messageEl, errorMsg, 'error');
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = 'SUBMIT APPLICATION';
