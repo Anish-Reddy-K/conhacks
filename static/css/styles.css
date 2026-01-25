@@ -408,7 +408,6 @@ body::before {
 
 .sponsor-card:hover {
     border-color: #D1BAFB;
-    transform: scale(1.05);
 }
 
 .sponsor-logo {
@@ -446,8 +445,8 @@ body::before {
 /* Community Partners */
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
     align-items: stretch;
 }
 
@@ -457,51 +456,40 @@ body::before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 25px;
-    min-height: 220px;
+    padding: 30px;
+    min-height: 160px;
     text-decoration: none;
     transition: border-color 0.2s, transform 0.2s;
     cursor: pointer;
+    background: #ffffff;
+    border: 4px solid #7D9ADD;
+    box-shadow: 8px 8px 0px #000;
 }
 
 .partner-card:hover {
     border-color: #D1BAFB;
-    transform: scale(1.05);
+}
+
+/* Partner card where image fills the space */
+.partner-card-fill {
+    padding: 0;
+    overflow: hidden;
+}
+
+.partner-card-fill .partner-logo {
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .partner-logo {
-    max-width: 100%;
+    max-width: 180px;
+    max-height: 100px;
+    width: auto;
     height: auto;
     object-fit: contain;
-}
-
-.partner-logo-tall {
-    max-height: 160px;
-    width: auto;
-}
-
-.partner-logo-wide {
-    max-height: 120px;
-    width: 100%;
-    max-width: 220px;
-}
-
-.partner-logo-square {
-    max-height: 140px;
-    max-width: 140px;
-}
-
-/* Partner cards for horizontal/rectangular logos */
-.partner-card-wide {
-    background: #ffffff;
-    padding: 25px 30px;
-}
-
-.partner-logo-horizontal {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    max-height: 100px;
 }
 
 .organizer-card {
@@ -1048,20 +1036,19 @@ body::before {
     }
 
     .partners-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
     }
 
     .partner-card {
-        min-height: 180px;
+        min-height: 130px;
+        padding: 20px;
+        box-shadow: 6px 6px 0px #000;
     }
 
-    .partner-logo-wide {
-        max-width: 200px;
-    }
-
-    .partner-logo-horizontal {
-        max-width: 180px;
+    .partner-logo {
+        max-width: 120px;
+        max-height: 80px;
     }
 
     .faq-question {
