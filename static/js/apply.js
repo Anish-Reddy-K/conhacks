@@ -585,7 +585,7 @@
         // Validate form
         const { isValid } = validateForm();
         if (!isValid) {
-            showFormMessage(messageEl, 'Please fix the errors above.', 'error');
+            showFormMessage(messageEl, 'Please fill out all required fields.', 'error');
             return;
         }
 
