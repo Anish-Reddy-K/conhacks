@@ -270,6 +270,60 @@ function parseBoolean($value) {
 }
 
 /**
+ * Check if email already exists in PocketBase
+ */
+function checkEmailExists($email, $apiUrl, $secretKey) {
+    // Build the filter query to check for existing email
+    $filter = urlencode('email="' . $email . '"');
+    $checkUrl = $apiUrl . '?filter=' . $filter . '&fields=id,email';
+    
+    error_log('Checking for duplicate email: ' . $email);
+    error_log('Check URL: ' . $checkUrl);
+    
+    $ch = curl_init($checkUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPGET, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+        'X-PB-Secret: ' . $secretKey
+    ]);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curlError = curl_error($ch);
+    
+    if (is_resource($ch)) {
+        curl_close($ch);
+    }
+    
+    error_log('Check response code: ' . $httpCode);
+    error_log('Check response: ' . substr($response, 0, 500));
+    if ($curlError) {
+        error_log('Check curl error: ' . $curlError);
+    }
+    
+    // If there's an error checking, we'll let the submission proceed
+    // and let PocketBase handle the duplicate check
+    if ($curlError || $httpCode !== 200) {
+        error_log('Email check failed, allowing submission to proceed');
+        return false;
+    }
+    
+    $data = json_decode($response, true);
+    
+    // Check if any records were returned
+    if (isset($data['items']) && count($data['items']) > 0) {
+        error_log('Duplicate email found!');
+        return true;
+    }
+    
+    error_log('No duplicate found');
+    return false;
+}
+
+/**
  * Validate dietary restrictions array
  */
 function validateDietaryRestrictions($json) {
@@ -457,6 +511,19 @@ if (empty($secretKey)) {
     echo json_encode([
         'success' => false,
         'message' => 'Server configuration error. Please contact support.'
+    ]);
+    exit;
+}
+
+// ============================================
+// CHECK FOR DUPLICATE EMAIL
+// ============================================
+
+if (checkEmailExists($data['email'], $apiUrl, $secretKey)) {
+    http_response_code(409); // Conflict status code
+    echo json_encode([
+        'success' => false,
+        'message' => 'You have already applied with this email address. We will email you if you are accepted!'
     ]);
     exit;
 }
