@@ -732,24 +732,14 @@
     // ============================================
 
     function setupBeforeUnloadWarning() {
-        const form = document.getElementById('application-form');
-        if (!form) return;
-
-        // Track if form has data
-        form.addEventListener('input', () => {
-            formHasData = true;
-        });
-
-        form.addEventListener('change', () => {
-            formHasData = true;
-        });
-
-        // Warn before leaving if modal is open and form has data
+        // Warn before leaving if modal is open
         window.addEventListener('beforeunload', (e) => {
             const modal = document.getElementById('application-modal');
-            if (modal && modal.getAttribute('aria-hidden') === 'false' && formHasData) {
+            const isModalOpen = modal && modal.classList.contains('active');
+            
+            if (isModalOpen) {
                 e.preventDefault();
-                e.returnValue = 'You have unsaved changes in your application. Are you sure you want to leave?';
+                e.returnValue = 'You have an application in progress. Are you sure you want to leave?';
                 return e.returnValue;
             }
         });
