@@ -90,6 +90,23 @@ body::before {
     z-index: -1;
 }
 
+#mlh-trust-badge {
+    display: block;
+    position: fixed;
+    right: 50px;
+    top: 0;
+    width: 10%;
+    max-width: 100px;
+    min-width: 60px;
+    z-index: 10000;
+}
+
+#mlh-trust-badge img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .container {
     max-width: 1000px; /* Increased width for more breathing room */
     margin: 0 auto;
@@ -1060,6 +1077,72 @@ body::before {
     }
 }
 
+@media (max-width: 600px) {
+    body {
+        padding-top: 120px;
+    }
+
+    .nav-container {
+        gap: 6px;
+        padding: 10px;
+    }
+
+    .nav-link {
+        font-size: 7px;
+        padding: 8px 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .nav-link.nav-cta {
+        padding: 8px 10px;
+        border-width: 2px;
+        box-shadow: 2px 2px 0px #000;
+    }
+
+    .pixel-header {
+        padding: 30px 12px 24px;
+    }
+
+    .pixel-presents {
+        font-size: 9px;
+        margin-bottom: 24px;
+        letter-spacing: 1px;
+    }
+
+    .logo-container {
+        margin-bottom: 20px;
+    }
+
+    .cloud-logo {
+        max-width: 240px;
+    }
+
+    .banner {
+        max-width: 260px;
+    }
+
+    .header-text-content {
+        padding: 10px 0 0;
+    }
+
+    .pixel-dates {
+        font-size: 14px;
+        margin-top: 12px;
+        letter-spacing: 1px;
+    }
+
+    .pixel-venue {
+        font-size: 12px;
+        margin-top: 10px;
+        letter-spacing: 0.5px;
+        line-height: 1.6;
+    }
+
+    #mlh-trust-badge {
+        display: none;
+    }
+}
+
 /* ============================================
    APPLICATION MODAL STYLES
    ============================================ */
@@ -1558,6 +1641,10 @@ body::before {
 /* Body scroll lock when modal is open */
 body.modal-open {
     overflow: hidden;
+}
+
+body.modal-open #mlh-trust-badge {
+    display: none;
 }
 
 /* Modal Responsive */
