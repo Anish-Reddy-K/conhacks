@@ -18,7 +18,7 @@
             <a href="#sponsors" class="nav-link">SPONSORS</a>
             <a href="#community-partners" class="nav-link">PARTNERS</a>
             <a href="#faq" class="nav-link">FAQ</a>
-            <a href="#apply" class="nav-link nav-cta">APPLY NOW</a>
+            <a href="#apply" class="nav-link nav-cta" onclick="event.preventDefault(); openApplicationModal();">APPLY NOW</a>
         </div>
     </nav>
 
@@ -39,31 +39,14 @@
         </header>
 
         <main class="pixel-content">
-            <!-- EMAIL NOTIFICATION / APPLY -->
+            <!-- APPLY SECTION -->
             <section class="cta-section" id="apply">
                 <p class="notification-heading pixel-text">
-                    Get notified when applications open
+                    Applications are now open!
                 </p>
-                <form id="email-form" class="email-form">
-                    <div class="email-input-wrapper">
-                        <input 
-                            type="email" 
-                            id="email-input" 
-                            name="email" 
-                            placeholder="Enter your email" 
-                            class="pixel-input"
-                            required
-                            maxlength="254"
-                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                            autocomplete="email"
-                            spellcheck="false"
-                        >
-                        <button type="submit" class="pixel-button submit-btn">
-                            SUBMIT
-                        </button>
-                    </div>
-                    <div id="form-message" class="form-message"></div>
-                </form>
+                <button type="button" class="pixel-button apply-cta-btn" onclick="openApplicationModal()">
+                    APPLY NOW
+                </button>
             </section>
 
             <!-- WELCOME / ABOUT -->
@@ -229,14 +212,11 @@
             <section class="pixel-section" id="community-partners">
                 <h2 class="pixel-heading">COMMUNITY PARTNERS</h2>
                 <div class="partners-grid">
-                    <a href="https://www.conestogastudents.com/" target="_blank" rel="noopener noreferrer" class="pixel-info-box partner-card partner-card-wide">
-                        <img src="comminuty partners/csi-logo.png" alt="Conestoga Students Inc (CSI)" class="partner-logo partner-logo-horizontal">
-                    </a>
                     <a href="https://gdg.community.dev/gdg-on-campus-conestoga-college-waterloo-campus-waterloo-canada/" target="_blank" rel="noopener noreferrer" class="pixel-info-box partner-card partner-card-wide">
                         <img src="comminuty partners/GDG Conestoga College Horizontal Logo.svg" alt="GDG on Campus - Conestoga College" class="partner-logo partner-logo-horizontal">
                     </a>
-                    <a href="https://www.linkedin.com/company/itclub-conestoga/" target="_blank" rel="noopener noreferrer" class="pixel-info-box partner-card partner-card-fill">
-                        <img src="comminuty partners/it club.webp" alt="IT Club - Conestoga College" class="partner-logo-fill">
+                    <a href="https://www.linkedin.com/company/itclub-conestoga/" target="_blank" rel="noopener noreferrer" class="pixel-info-box partner-card">
+                        <img src="comminuty partners/it club.webp" alt="IT Club - Conestoga College" class="partner-logo partner-logo-wide">
                     </a>
                     <a href="https://www.conestogastudents.com/organisation/6465/" target="_blank" rel="noopener noreferrer" class="pixel-info-box partner-card">
                         <img src="comminuty partners/ccsa.webp" alt="Conestoga Cyber Security Association (CCSA)" class="partner-logo partner-logo-square">
@@ -270,7 +250,7 @@
                 <div class="grid-2-col judges-grid">
                     <div class="pixel-info-box judge-card">
                         <h3 class="pixel-subheading">Anish Reddy</h3>
-                        <p class="pixel-text">President, <a href="https://conestogacomputingsociety.com/" target="_blank" rel="noopener noreferrer" class="ccs-link">Conestoga Computing Society (CCS)</a>; Intern, Geotab</p>
+                        <p class="pixel-text">President, <a href="https://conestogacomputingsociety.com/" target="_blank" rel="noopener noreferrer" class="ccs-link">Conestoga Computing Society (CCS)</a>; AI Engineer, Geotab</p>
                     </div>
                     <div class="pixel-info-box judge-card">
                         <h3 class="pixel-subheading">TBD</h3>
@@ -321,11 +301,11 @@
             <section class="pixel-section">
                 <h2 class="pixel-heading">RULES</h2>
                 <div class="pixel-info-box">
-                    <p class="pixel-text center-text"><strong>Be Cool. Be Kind. Hack Fair.</strong></p>
+                    <p class="pixel-text center-text"><strong>Respect the Rules. Be Kind. Hack Fair.</strong></p>
                     <ol class="rules-list pixel-text">
-                        <li><strong>Code of Conduct:</strong> Strict adherence required. No harassment of any kind.</li>
+                        <li><strong>Code of Conduct:</strong> Strict adherence required. No harassment of any kind will be tolerated.</li>
                         <li><strong>Fresh Code Policy:</strong> All code must be written during the event (Fri 9 PM - Sun 9 AM). No pre-finished projects.</li>
-                        <li><strong>Intellectual Property:</strong> You own what you build. CCS claims no rights.</li>
+                        <li><strong>Intellectual Property:</strong> You own what you build. CCS and ConHacks do not claim any rights.</li>
                         <li><strong>Team Size:</strong> Up to 4 members. Team formation session available.</li>
                         <li><strong>Venue Rules:</strong> Respect the campus. Clean up trash. Treat equipment with care.</li>
                     </ol>
@@ -336,30 +316,72 @@
             <section class="pixel-section" id="faq">
                 <h2 class="pixel-heading">FAQ</h2>
                 <div class="faq-container">
-                    <details class="pixel-info-box faq-item">
-                        <summary class="pixel-subheading faq-question">What is a hackathon?</summary>
-                        <p class="pixel-text faq-answer">A hackathon is an event where people come together to build creative software or hardware projects in a short amount of time. It's not about "hacking" in the security sense—it's about rapid prototyping and innovation!</p>
-                    </details>
-                    <details class="pixel-info-box faq-item">
-                        <summary class="pixel-subheading faq-question">Do I need coding experience?</summary>
-                        <p class="pixel-text faq-answer">Not at all! ConHacks is beginner-friendly. We offer "Starter Pack" workshops to help you set up your environment and learn the basics. Mentors will be available throughout the event to guide you.</p>
-                    </details>
-                    <details class="pixel-info-box faq-item">
-                        <summary class="pixel-subheading faq-question">Who can participate?</summary>
-                        <p class="pixel-text faq-answer">ConHacks is open to all Conestoga College students. Whether you're studying computer science, business, design, or any other field—everyone is welcome!</p>
-                    </details>
-                    <details class="pixel-info-box faq-item">
-                        <summary class="pixel-subheading faq-question">Do I need a team?</summary>
-                        <p class="pixel-text faq-answer">You can come solo or with a team of up to 4 people. If you don't have a team, no worries! We'll have a team formation session on Friday night to help you find teammates.</p>
-                    </details>
-                    <details class="pixel-info-box faq-item">
-                        <summary class="pixel-subheading faq-question">What should I bring?</summary>
-                        <p class="pixel-text faq-answer">Bring your laptop, charger, student ID, and any personal items you need for an overnight stay (toiletries, sleeping bag/blanket if you plan to rest). We provide food, drinks, WiFi, and power outlets!</p>
-                    </details>
-                    <details class="pixel-info-box faq-item">
-                        <summary class="pixel-subheading faq-question">Is it free?</summary>
-                        <p class="pixel-text faq-answer">Yes! ConHacks 2026 is completely free for all participants. We cover food, swag, and everything else.</p>
-                    </details>
+                    <div class="faq-item">
+                        <button class="faq-toggle" aria-expanded="false">
+                            <span class="faq-question">What is a hackathon?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p class="pixel-text">A hackathon is an event where people come together to build creative software or hardware projects in a short amount of time. It's not about "hacking" in the security sense—it's about rapid prototyping and innovation!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-toggle" aria-expanded="false">
+                            <span class="faq-question">Do I need coding experience?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p class="pixel-text">Not at all! ConHacks is beginner-friendly. We offer "Starter Pack" workshops to help you set up your environment and learn the basics. Mentors will be available throughout the event to guide you.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-toggle" aria-expanded="false">
+                            <span class="faq-question">Who can participate?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p class="pixel-text">ConHacks is open to all Conestoga College students. Whether you're studying computer science, business, design, or any other field—everyone is welcome!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-toggle" aria-expanded="false">
+                            <span class="faq-question">Do I need a team?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p class="pixel-text">You can come solo or with a team of up to 4 people. If you don't have a team, no worries! We'll have a team formation session on Friday night to help you find teammates.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-toggle" aria-expanded="false">
+                            <span class="faq-question">What should I bring?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p class="pixel-text">Bring your laptop, charger, student ID, and any personal items you need for an overnight stay (toiletries, sleeping bag/blanket if you plan to rest). We provide food, drinks, WiFi, and power outlets!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-toggle" aria-expanded="false">
+                            <span class="faq-question">Is it free?</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p class="pixel-text">Yes! ConHacks 2026 is completely free for all participants. We cover food, swag, and everything else.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -397,39 +419,263 @@
 
             <section class="pixel-section pixel-section-center">
                 <p class="notification-heading pixel-text">
-                    Get notified when applications open
+                    Ready to join ConHacks 2026?
                 </p>
-                <form id="email-form-bottom" class="email-form">
-                    <div class="email-input-wrapper">
-                        <input 
-                            type="email" 
-                            id="email-input-bottom" 
-                            name="email" 
-                            placeholder="Enter your email" 
-                            class="pixel-input"
-                            required
-                            maxlength="254"
-                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                            autocomplete="email"
-                            spellcheck="false"
-                        >
-                        <button type="submit" class="pixel-button submit-btn">
-                            SUBMIT
-                        </button>
-                    </div>
-                    <div id="form-message-bottom" class="form-message"></div>
-                </form>
+                <button type="button" class="pixel-button apply-cta-btn" onclick="openApplicationModal()">
+                    APPLY NOW
+                </button>
             </section>
         </main>
 
         <footer class="pixel-footer">
             <p class="pixel-text small">© 2026 <a href="https://conestogacomputingsociety.com/" target="_blank" rel="noopener noreferrer" class="ccs-link">Conestoga Computing Society</a> | conhacks.io</p>
             <p class="pixel-text small">Contact: <a href="mailto:contact@conhacks.io" class="ccs-link">contact@conhacks.io</a></p>
-            <p class="pixel-text small">This event follows the <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md" target="_blank" rel="noopener noreferrer" class="ccs-link">MLH Code of Conduct</a></p>
         </footer>
     </div>
 
+    <!-- Application Modal -->
+    <div id="application-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+        <div class="modal-container">
+            <button type="button" class="modal-close-btn" aria-label="Close application form" onclick="closeApplicationModal()">&times;</button>
+            
+            <h2 id="modal-title" class="pixel-heading modal-heading">APPLY NOW</h2>
+            
+            <form id="application-form" class="application-form" novalidate>
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Personal Information</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="apply-first-name" class="form-label">First Name <span class="required">*</span></label>
+                            <input type="text" id="apply-first-name" name="first_name" class="form-input" required maxlength="100" autocomplete="given-name">
+                            <span class="form-error" id="error-first-name"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="apply-last-name" class="form-label">Last Name <span class="required">*</span></label>
+                            <input type="text" id="apply-last-name" name="last_name" class="form-input" required maxlength="100" autocomplete="family-name">
+                            <span class="form-error" id="error-last-name"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="apply-email" class="form-label">Email <span class="required">*</span></label>
+                            <input type="email" id="apply-email" name="email" class="form-input" required maxlength="254" autocomplete="email">
+                            <span class="form-error" id="error-email"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="apply-phone" class="form-label">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="apply-phone" name="phone" class="form-input" required maxlength="20" autocomplete="tel">
+                            <span class="form-error" id="error-phone"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group form-group-small">
+                            <label for="apply-age" class="form-label">Age <span class="required">*</span></label>
+                            <select id="apply-age" name="age" class="form-select" required>
+                                <option value="">Select</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41+</option>
+                            </select>
+                            <span class="form-error" id="error-age"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="apply-linkedin" class="form-label">LinkedIn URL <span class="optional">(optional)</span></label>
+                            <input type="url" id="apply-linkedin" name="linkedin_url" class="form-input" maxlength="200" placeholder="https://linkedin.com/in/yourprofile">
+                            <span class="form-error" id="error-linkedin"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Academic Information -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Academic Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="apply-school" class="form-label">School <span class="required">*</span></label>
+                        <div class="searchable-dropdown" id="school-dropdown">
+                            <input type="text" id="apply-school" name="school" class="form-input dropdown-input" required maxlength="200" placeholder="Search for your school..." autocomplete="off">
+                            <input type="hidden" id="apply-school-value" name="school_value">
+                            <div class="dropdown-list" id="school-list" aria-label="School options"></div>
+                        </div>
+                        <span class="form-error" id="error-school"></span>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="apply-level" class="form-label">Level of Study <span class="required">*</span></label>
+                            <select id="apply-level" name="level_of_study" class="form-select" required>
+                                <option value="">Select Level</option>
+                                <option value="high_school">Less than Secondary / High School</option>
+                                <option value="secondary">Secondary / High School</option>
+                                <option value="undergrad_2yr">Undergraduate University (2 year - community college)</option>
+                                <option value="undergrad_3yr">Undergraduate University (3+ year)</option>
+                                <option value="graduate">Graduate University (Masters, Professional, Doctoral)</option>
+                                <option value="bootcamp">Code School / Bootcamp</option>
+                                <option value="vocational">Other Vocational / Trade Program or Apprenticeship</option>
+                                <option value="postdoc">Post Doctorate</option>
+                                <option value="not_student">I'm not currently a student</option>
+                                <option value="other">Other</option>
+                                <option value="prefer_not">Prefer not to answer</option>
+                            </select>
+                            <span class="form-error" id="error-level"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="apply-country" class="form-label">Country of Residence <span class="required">*</span></label>
+                            <div class="searchable-dropdown" id="country-dropdown">
+                                <input type="text" id="apply-country" name="country" class="form-input dropdown-input" required maxlength="100" placeholder="Search for your country..." autocomplete="off">
+                                <input type="hidden" id="apply-country-value" name="country_value">
+                                <div class="dropdown-list" id="country-list" aria-label="Country options"></div>
+                            </div>
+                            <span class="form-error" id="error-country"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dietary Restrictions -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Dietary Restrictions <span class="optional">(optional)</span></h3>
+                    
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="dietary_restrictions" value="vegetarian" class="form-checkbox">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Vegetarian</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="dietary_restrictions" value="vegan" class="form-checkbox">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Vegan</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="dietary_restrictions" value="halal" class="form-checkbox">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Halal</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="dietary_restrictions" value="kosher" class="form-checkbox">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Kosher</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="dietary_restrictions" value="celiac" class="form-checkbox">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Celiac Disease</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="dietary_restrictions" value="allergies" class="form-checkbox" id="dietary-allergies">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Allergies / Other</span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="apply-dietary-other" class="form-label">Other dietary needs or allergies:</label>
+                        <input type="text" id="apply-dietary-other" name="dietary_other" class="form-input" maxlength="500" placeholder="e.g., Peanut allergy, lactose intolerant...">
+                    </div>
+                </div>
+                
+                <!-- MLH Checkboxes -->
+                <div class="form-section">
+                    <h3 class="form-section-title">MLH Agreements</h3>
+                    <p class="form-section-note">We are partnering with Major League Hacking (MLH). The following checkboxes are required for this partnership.</p>
+                    
+                    <div class="checkbox-group-vertical">
+                        <label class="checkbox-label checkbox-label-long">
+                            <input type="checkbox" name="mlh_code_of_conduct" id="mlh-coc" class="form-checkbox" required>
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">I have read and agree to the <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md" target="_blank" rel="noopener noreferrer">MLH Code of Conduct</a>. <span class="required">*</span></span>
+                        </label>
+                        <span class="form-error" id="error-mlh-coc"></span>
+                        
+                        <label class="checkbox-label checkbox-label-long">
+                            <input type="checkbox" name="mlh_privacy_policy" id="mlh-privacy" class="form-checkbox" required>
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the <a href="https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md" target="_blank" rel="noopener noreferrer">MLH Privacy Policy</a>. I further agree to the terms of both the <a href="https://github.com/MLH/mlh-policies/blob/main/contest-terms.md" target="_blank" rel="noopener noreferrer">MLH Contest Terms and Conditions</a> and the <a href="https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md" target="_blank" rel="noopener noreferrer">MLH Privacy Policy</a>. <span class="required">*</span></span>
+                        </label>
+                        <span class="form-error" id="error-mlh-privacy"></span>
+                        
+                        <label class="checkbox-label checkbox-label-long">
+                            <input type="checkbox" name="mlh_emails" id="mlh-emails" class="form-checkbox">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">I authorize MLH to send me occasional emails about relevant events, career opportunities, and community announcements. <span class="optional">(optional)</span></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- ConHacks Checkboxes -->
+                <div class="form-section">
+                    <h3 class="form-section-title">ConHacks Agreements</h3>
+                    
+                    <div class="checkbox-group-vertical">
+                        <label class="checkbox-label checkbox-label-long">
+                            <input type="checkbox" name="conhacks_college_student" id="conhacks-college" class="form-checkbox" required>
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">I confirm that I am currently enrolled as a college or university student. ConHacks is a collegiate hackathon. <span class="required">*</span></span>
+                        </label>
+                        <span class="form-error" id="error-conhacks-college"></span>
+                        
+                        <label class="checkbox-label checkbox-label-long">
+                            <input type="checkbox" name="conhacks_in_person" id="conhacks-inperson" class="form-checkbox" required>
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">I understand that ConHacks 2026 is a fully in-person event at Conestoga College, Waterloo Campus (March 27-29, 2026) and I commit to attending in person. <span class="required">*</span></span>
+                        </label>
+                        <span class="form-error" id="error-conhacks-inperson"></span>
+                    </div>
+                </div>
+                
+                <!-- Additional Comments -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="apply-comments" class="form-label">Additional Comments <span class="optional">(optional)</span></label>
+                        <textarea id="apply-comments" name="additional_comments" class="form-textarea" maxlength="1000" rows="4" placeholder="Special accommodations, questions, excitement about ConHacks..."></textarea>
+                        <span class="form-char-count"><span id="comments-count">0</span>/1000</span>
+                    </div>
+                </div>
+                
+                <!-- Submit -->
+                <div class="form-actions">
+                    <div id="application-form-message" class="form-message"></div>
+                    <button type="submit" class="pixel-button submit-application-btn" id="submit-application-btn">
+                        SUBMIT APPLICATION
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="static/js/data/countries.js"></script>
+    <script src="static/js/data/schools.js"></script>
+    <script src="static/js/apply.js"></script>
     <script src="static/js/main.js"></script>
-    <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:50px;top:0;width:10%;z-index:10000" href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-white.svg" alt="Major League Hacking 2026 Hackathon Season" style="width:100%"></a>
 </body>
 </html>

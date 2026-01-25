@@ -168,16 +168,24 @@ function showMessage(element, text, type) {
     element.className = `form-message ${type}`;
 }
 
-// Setup both forms when DOM is loaded
+// Setup when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    setupForm('email-form', 'email-input', 'form-message');
-    setupForm('email-form-bottom', 'email-input-bottom', 'form-message-bottom');
+    // Setup email forms if they exist
+    const emailForm = document.getElementById('email-form');
+    const emailFormBottom = document.getElementById('email-form-bottom');
+    
+    if (emailForm) {
+        setupForm('email-form', 'email-input', 'form-message');
+    }
+    if (emailFormBottom) {
+        setupForm('email-form-bottom', 'email-input-bottom', 'form-message-bottom');
+    }
 
     // Smooth scroll offset for fixed nav
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href.startsWith('#')) {
+            if (href && href.startsWith('#')) {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
@@ -188,6 +196,26 @@ document.addEventListener('DOMContentLoaded', () => {
                         behavior: 'smooth'
                     });
                 }
+            }
+        });
+    });
+
+    // FAQ Toggle functionality
+    document.querySelectorAll('.faq-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const faqItem = this.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                faqItem.classList.add('active');
+                this.setAttribute('aria-expanded', 'true');
             }
         });
     });
