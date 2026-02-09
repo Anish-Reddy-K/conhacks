@@ -18,7 +18,7 @@
             <a href="#sponsors" class="nav-link">SPONSORS</a>
             <a href="#community-partners" class="nav-link">PARTNERS</a>
             <a href="#faq" class="nav-link">FAQ</a>
-            <a href="javascript:void(0)" class="nav-link nav-cta" onclick="openApplicationModal();">APPLY NOW</a>
+            <span class="nav-link nav-cta nav-cta-disabled" title="Applications under maintenance until Feb 17">APPLY NOW</span>
         </div>
     </nav>
     <a id="mlh-trust-badge" class="mlh-trust-badge" href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white" target="_blank" rel="noopener noreferrer">
@@ -45,9 +45,9 @@
             <!-- APPLY SECTION -->
             <section class="cta-section" id="apply">
                 <p class="notification-heading pixel-text">
-                    Applications are now open!
+                    Applications are temporarily under technical maintenance and will reopen by <strong>February 17</strong>.
                 </p>
-                <button type="button" class="pixel-button apply-cta-btn" onclick="openApplicationModal()">
+                <button type="button" class="pixel-button apply-cta-btn" disabled aria-disabled="true" title="Applications reopen February 17">
                     APPLY NOW
                 </button>
             </section>
@@ -425,9 +425,9 @@
 
             <section class="pixel-section pixel-section-center">
                 <p class="notification-heading pixel-text">
-                    Ready to join ConHacks 2026?
+                    Applications are temporarily under technical maintenance and will reopen by <strong>February 17</strong>.
                 </p>
-                <button type="button" class="pixel-button apply-cta-btn" onclick="openApplicationModal()">
+                <button type="button" class="pixel-button apply-cta-btn" disabled aria-disabled="true" title="Applications reopen February 17">
                     APPLY NOW
                 </button>
             </section>
@@ -438,6 +438,17 @@
             <p class="pixel-text small">Contact: <a href="mailto:contact@conhacks.io" class="ccs-link">contact@conhacks.io</a></p>
             <p class="pixel-text small">This event follows the <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md" target="_blank" rel="noopener noreferrer" class="ccs-link">MLH Code of Conduct</a></p>
         </footer>
+    </div>
+
+    <!-- Maintenance notice modal (shown when applications are temporarily closed) -->
+    <div id="maintenance-modal" class="modal-overlay maintenance-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="maintenance-modal-title">
+        <div class="modal-container maintenance-modal-container">
+            <button type="button" class="modal-close-btn" aria-label="Close" onclick="closeMaintenanceModal()">&times;</button>
+            <h2 id="maintenance-modal-title" class="pixel-heading modal-heading">Applications Under Maintenance</h2>
+            <p class="pixel-text" style="text-align: center; margin: 0;">
+                Applications are temporarily under technical maintenance and will reopen by <strong>February 17</strong>. Thank you for your patience.
+            </p>
+        </div>
     </div>
 
     <!-- Application Modal -->

@@ -7,6 +7,7 @@
     // ============================================
     // CONFIGURATION
     // ============================================
+    const APPLICATIONS_MAINTENANCE = true; // Set to false when applications reopen (by Feb 17)
     const CONFIG = {
         RATE_LIMIT_MS: 5000, // 5 seconds between submissions
         MAX_LENGTHS: {
@@ -32,6 +33,10 @@
     // ============================================
     
     window.openApplicationModal = function() {
+        if (APPLICATIONS_MAINTENANCE) {
+            openMaintenanceModal();
+            return;
+        }
         const modal = document.getElementById('application-modal');
         if (!modal) return;
         
@@ -62,6 +67,22 @@
         
         // Clear focus trap
         document.removeEventListener('keydown', handleFocusTrap);
+    };
+
+    window.openMaintenanceModal = function() {
+        const modal = document.getElementById('maintenance-modal');
+        if (!modal) return;
+        modal.setAttribute('aria-hidden', 'false');
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+    };
+
+    window.closeMaintenanceModal = function() {
+        const modal = document.getElementById('maintenance-modal');
+        if (!modal) return;
+        modal.setAttribute('aria-hidden', 'true');
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
     };
 
     // Focus trap for accessibility

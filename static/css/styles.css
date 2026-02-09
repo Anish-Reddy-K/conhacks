@@ -75,6 +75,19 @@ body {
     text-shadow: none;
 }
 
+.nav-link.nav-cta-disabled {
+    background: #282a36;
+    color: #7D9ADD;
+    border-color: #7D9ADD;
+    cursor: not-allowed;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.nav-link.nav-cta-disabled:hover {
+    opacity: 0.8;
+}
+
 body::before {
     content: '';
     position: fixed;
@@ -1624,6 +1637,29 @@ body::before {
 
 .apply-cta-btn:active {
     opacity: 0.7;
+}
+
+.apply-cta-btn:disabled {
+    background: #282a36;
+    color: #7D9ADD;
+    border-color: #7D9ADD;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.apply-cta-btn:disabled:hover {
+    opacity: 0.8;
+}
+
+/* Maintenance notice modal (compact) */
+.maintenance-modal-container {
+    max-width: 420px;
+    padding: 30px 28px;
+}
+
+.maintenance-modal-container .modal-heading {
+    font-size: 18px;
+    margin-bottom: 16px;
 }
 
 #application-form-message {
