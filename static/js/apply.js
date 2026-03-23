@@ -7,7 +7,7 @@
     // ============================================
     // CONFIGURATION
     // ============================================
-    const APPLICATIONS_MAINTENANCE = true; // Set to false when applications reopen (by March 22)
+    const APPLICATIONS_MAINTENANCE = false;
     const CONFIG = {
         RATE_LIMIT_MS: 5000, // 5 seconds between submissions
         MAX_LENGTHS: {
