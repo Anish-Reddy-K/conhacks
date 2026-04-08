@@ -681,7 +681,17 @@ body::before {
 }
 
 .organizer-card .pixel-subheading {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
+}
+
+.organizer-role {
+    color: #D1BAFB;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    margin: 0 0 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .organizer-linkedin {
