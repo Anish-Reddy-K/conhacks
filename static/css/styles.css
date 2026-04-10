@@ -643,6 +643,11 @@ body::before {
     object-fit: contain;
 }
 
+.partner-logo-wide {
+    max-width: 150px;
+    max-height: 60px;
+}
+
 .organizer-card {
     text-align: center;
     display: flex;
