@@ -1,0 +1,54 @@
+ConHacks 2026 — Application Questions
+======================================
+
+1. PERSONAL INFORMATION
+-----------------------
+- First Name *
+- Last Name *
+- Email *
+- Phone Number *
+- Age * (dropdown: 13–41+)
+- LinkedIn URL (optional)
+
+2. ACADEMIC INFORMATION
+-----------------------
+- School * (searchable dropdown)
+- Level of Study * (dropdown):
+    - Less than Secondary / High School
+    - Secondary / High School
+    - Undergraduate University (2 year - community college)
+    - Undergraduate University (3+ year)
+    - Graduate University (Masters, Professional, Doctoral)
+    - Code School / Bootcamp
+    - Other Vocational / Trade Program or Apprenticeship
+    - Post Doctorate
+    - I'm not currently a student
+    - Other
+    - Prefer not to answer
+- Country of Residence * (searchable dropdown)
+
+3. DIETARY RESTRICTIONS (optional)
+----------------------------------
+- Checkboxes: Vegetarian, Vegan, Halal, Kosher, Celiac Disease
+- Other dietary needs or allergies (free text, max 500 chars)
+
+4. MLH AGREEMENTS
+-----------------
+- [required] I have read and agree to the MLH Code of Conduct.
+    https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md
+- [required] I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the MLH Privacy Policy. I further agree to the terms of both the MLH Contest Terms and Conditions and the MLH Privacy Policy.
+    MLH Privacy Policy: https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md
+    MLH Contest Terms: https://github.com/MLH/mlh-policies/blob/main/contest-terms.md
+- [optional] I authorize MLH to send me occasional emails about relevant events, career opportunities, and community announcements.
+
+5. CONHACKS AGREEMENTS
+-----------------------
+- [required] I confirm that I am currently enrolled as a college or university student. ConHacks is a collegiate hackathon.
+- [required] I understand that ConHacks 2026 is a fully in-person event at Conestoga College, Waterloo Campus (April 28-30, 2026) and I commit to attending in person.
+
+Note: At this time, we are not providing any travel reimbursements.
+
+6. ADDITIONAL COMMENTS (optional)
+----------------------------------
+- Free text (max 1000 chars)
+- Placeholder: "Special accommodations, questions, excitement about ConHacks..."
