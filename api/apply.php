@@ -11,6 +11,15 @@
  * - SQL injection prevention (PocketBase handles this, but we sanitize anyway)
  */
 
+// Applications are closed
+header('Content-Type: application/json');
+http_response_code(403);
+echo json_encode([
+    'success' => false,
+    'message' => 'Applications for ConHacks 2026 are closed. See you next year!'
+]);
+exit;
+
 // Start session for rate limiting
 session_start();
 
