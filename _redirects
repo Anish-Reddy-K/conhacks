@@ -2,3 +2,9 @@
 # Redirect /index.html to /
 /index.html    /    301
 
+# Block access to dotfiles
+/.env    /    403!
+/.env.*  /    403!
+/.git/*  /    403!
+/.htaccess  /    403!
+

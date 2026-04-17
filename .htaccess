@@ -1,3 +1,9 @@
+# Block access to ALL dotfiles (.env, .git, .htaccess, etc.)
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
 # Enable URL rewriting
 RewriteEngine On
 

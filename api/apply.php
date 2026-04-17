@@ -30,7 +30,6 @@ function loadEnv($path = null) {
             __DIR__ . '/.env',
             __DIR__ . '/../.env',
             dirname(__DIR__) . '/.env',
-            $_SERVER['DOCUMENT_ROOT'] . '/.env',
         ];
         
         foreach ($paths as $tryPath) {
