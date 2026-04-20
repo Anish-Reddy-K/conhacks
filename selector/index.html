@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conhacks — Accept Applicants</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #e0e0e0; padding: 20px; }
+  h1 { font-size: 1.4rem; margin-bottom: 8px; }
+  .bar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; padding: 12px; background: #1a1a1a; border-radius: 8px; position: sticky; top: 0; z-index: 10; }
+  .bar input[type=text] { flex: 1; min-width: 200px; padding: 8px 12px; border-radius: 6px; border: 1px solid #333; background: #111; color: #fff; font-size: 14px; }
+  .bar select { padding: 8px; border-radius: 6px; border: 1px solid #333; background: #111; color: #fff; }
+  .stats { font-size: 13px; color: #888; }
+  .stats b { color: #4ade80; }
+  button { padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; font-size: 13px; font-weight: 600; }
+  .btn-export { background: #4ade80; color: #000; }
+  .btn-export:hover { background: #22c55e; }
+  .btn-clear { background: #333; color: #ccc; }
+  .btn-clear:hover { background: #444; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
+  thead { position: sticky; top: 0; z-index: 5; }
+  th { background: #1a1a1a; text-align: left; padding: 8px 10px; border-bottom: 2px solid #333; cursor: pointer; user-select: none; white-space: nowrap; }
+  th:hover { color: #4ade80; }
+  td { padding: 7px 10px; border-bottom: 1px solid #1a1a1a; max-width: 200px; overflow: hidden; text-overflow: ellipsis; }
+  td.comment-cell { max-width: none; white-space: normal; word-break: break-word; min-width: 300px; }
+  td.diet-other-cell { max-width: none; white-space: normal; word-break: break-word; min-width: 150px; }
+  tr:hover { background: #151515; }
+  tr.selected { background: #0f2a1a; }
+  tr.selected:hover { background: #153320; }
+  .cb { width: 18px; height: 18px; cursor: pointer; accent-color: #4ade80; }
+  .tag { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin: 1px; }
+  .tag-halal { background: #1e3a2f; color: #4ade80; }
+  .tag-vegetarian { background: #2a2f1e; color: #a3e635; }
+  .tag-vegan { background: #1e2f2a; color: #2dd4bf; }
+  .tag-kosher { background: #2f2a1e; color: #fbbf24; }
+  .tag-celiac { background: #2f1e2a; color: #f472b6; }
+  .tag-allergies { background: #2f1e1e; color: #f87171; }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .bool-yes { color: #4ade80; }
+  .bool-no { color: #555; }
+</style>
+</head>
+<body>
+
+<h1>Conhacks — Accept Applicants</h1>
+
+<div class="bar">
+  <input type="text" id="search" placeholder="Search name, email, school, country...">
+  <select id="filterSchool"><option value="">All Schools</option></select>
+  <select id="filterDiet">
+    <option value="">All Diets</option>
+    <option value="halal">Halal</option>
+    <option value="vegetarian">Vegetarian</option>
+    <option value="vegan">Vegan</option>
+    <option value="kosher">Kosher</option>
+    <option value="celiac">Celiac</option>
+    <option value="none">No Restrictions</option>
+  </select>
+  <select id="filterLevel">
+    <option value="">All Levels</option>
+    <option value="undergrad">Undergrad</option>
+    <option value="graduate">Graduate</option>
+    <option value="high_school">High School</option>
+    <option value="not_student">Not Student</option>
+  </select>
+  <select id="filterCollegeStudent">
+    <option value="">College Student?</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
+  </select>
+  <select id="filterInPerson">
+    <option value="">In Person?</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
+  </select>
+  <select id="filterLinkedin">
+    <option value="">LinkedIn?</option>
+    <option value="1">Has LinkedIn</option>
+    <option value="0">No LinkedIn</option>
+  </select>
+  <span class="stats">
+    Showing <b id="showCount">0</b> | Selected <b id="selCount">0</b>/450
+  </span>
+  <button class="btn-export" onclick="exportCSV()">Export Selected Emails CSV</button>
+  <button class="btn-clear" onclick="clearAll()">Clear Selection</button>
+</div>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th style="width:30px">✓</th>
+      <th data-col="created">Applied</th>
+      <th data-col="first_name">First</th>
+      <th data-col="last_name">Last</th>
+      <th data-col="email">Email</th>
+      <th data-col="phone">Phone</th>
+      <th data-col="age">Age</th>
+      <th data-col="school">School</th>
+      <th data-col="level_of_study">Level</th>
+      <th data-col="country">Country</th>
+      <th>LinkedIn</th>
+      <th>Diet</th>
+      <th>Diet Other</th>
+      <th data-col="conhacks_college_student">College Student</th>
+      <th data-col="conhacks_in_person">In Person</th>
+      <th>Comments</th>
+    </tr>
+  </thead>
+  <tbody id="tbody"></tbody>
+</table>
+</div>
+
+<script>
+let apps = [];
+let selected = new Set();
+let sortCol = 'created';
+let sortAsc = true;
+
+const STORAGE_KEY = 'conhacks_selected';
+
+function saveSelection() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify([...selected]));
+}
+function loadSelection() {
+  try {
+    const s = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (Array.isArray(s)) selected = new Set(s);
+  } catch {}
+}
+
+async function load() {
+  loadSelection();
+  const res = await fetch('/api/applications');
+  apps = await res.json();
+
+  const schools = [...new Set(apps.map(a => a.school).filter(Boolean))].sort();
+  const sel = document.getElementById('filterSchool');
+  schools.forEach(s => {
+    const o = document.createElement('option');
+    o.value = s; o.textContent = s;
+    sel.appendChild(o);
+  });
+
+  render();
+}
+
+function getFiltered() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const school = document.getElementById('filterSchool').value;
+  const diet = document.getElementById('filterDiet').value;
+  const level = document.getElementById('filterLevel').value;
+  const collegeStudent = document.getElementById('filterCollegeStudent').value;
+  const inPerson = document.getElementById('filterInPerson').value;
+  const linkedin = document.getElementById('filterLinkedin').value;
+
+  let filtered = apps.filter(a => {
+    if (q) {
+      const hay = `${a.first_name} ${a.last_name} ${a.email} ${a.school} ${a.country} ${a.phone}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    if (school && a.school !== school) return false;
+    if (level) {
+      if (level === 'undergrad') {
+        if (!a.level_of_study?.startsWith('undergrad')) return false;
+      } else if (a.level_of_study !== level) return false;
+    }
+    if (diet) {
+      const dr = parseDiet(a.dietary_restrictions);
+      if (diet === 'none') { if (dr.length > 0) return false; }
+      else { if (!dr.includes(diet)) return false; }
+    }
+    if (collegeStudent !== '') {
+      const val = collegeStudent === '1';
+      if (Boolean(a.conhacks_college_student) !== val) return false;
+    }
+    if (inPerson !== '') {
+      const val = inPerson === '1';
+      if (Boolean(a.conhacks_in_person) !== val) return false;
+    }
+    if (linkedin !== '') {
+      const has = Boolean(a.linkedin_url && a.linkedin_url.trim());
+      if (has !== (linkedin === '1')) return false;
+    }
+    return true;
+  });
+
+  filtered.sort((a, b) => {
+    let va = a[sortCol] ?? '', vb = b[sortCol] ?? '';
+    if (sortCol === 'age') { va = Number(va) || 0; vb = Number(vb) || 0; }
+    else { va = String(va).toLowerCase(); vb = String(vb).toLowerCase(); }
+    if (va < vb) return sortAsc ? -1 : 1;
+    if (va > vb) return sortAsc ? 1 : -1;
+    return 0;
+  });
+
+  return filtered;
+}
+
+function parseDiet(d) {
+  if (!d) return [];
+  if (typeof d === 'string') { try { d = JSON.parse(d); } catch { return []; } }
+  return Array.isArray(d) ? d : [];
+}
+
+function bool(v) {
+  return v ? '<span class="bool-yes">Yes</span>' : '<span class="bool-no">No</span>';
+}
+
+function linkedIn(url) {
+  if (!url) return '';
+  return `<a href="${esc(url)}" target="_blank" rel="noopener">Profile</a>`;
+}
+
+function formatDate(d) {
+  if (!d) return '';
+  try { return new Date(d).toLocaleDateString('en-CA'); } catch { return d; }
+}
+
+function render() {
+  const filtered = getFiltered();
+  const tbody = document.getElementById('tbody');
+
+  let html = '';
+  for (const a of filtered) {
+    const checked = selected.has(a.id) ? 'checked' : '';
+    const rowClass = selected.has(a.id) ? 'selected' : '';
+    const diet = parseDiet(a.dietary_restrictions);
+    const tags = diet.map(d => `<span class="tag tag-${d}">${d}</span>`).join('');
+    html += `<tr class="${rowClass}" data-id="${a.id}">
+      <td><input type="checkbox" class="cb" ${checked} data-id="${a.id}"></td>
+      <td>${formatDate(a.created)}</td>
+      <td>${esc(a.first_name)}</td>
+      <td>${esc(a.last_name)}</td>
+      <td>${esc(a.email)}</td>
+      <td>${esc(a.phone)}</td>
+      <td>${a.age || ''}</td>
+      <td title="${esc(a.school)}">${esc(a.school)}</td>
+      <td>${esc(a.level_of_study)}</td>
+      <td>${esc(a.country)}</td>
+      <td>${linkedIn(a.linkedin_url)}</td>
+      <td>${tags}</td>
+      <td class="diet-other-cell">${esc(a.dietary_other)}</td>
+      <td>${bool(a.conhacks_college_student)}</td>
+      <td>${bool(a.conhacks_in_person)}</td>
+      <td class="comment-cell">${esc(a.additional_comments)}</td>
+    </tr>`;
+  }
+  tbody.innerHTML = html;
+
+  document.getElementById('showCount').textContent = filtered.length;
+  document.getElementById('selCount').textContent = selected.size;
+}
+
+function esc(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+document.getElementById('tbody').addEventListener('change', e => {
+  if (e.target.classList.contains('cb')) {
+    const id = e.target.dataset.id;
+    if (e.target.checked) selected.add(id);
+    else selected.delete(id);
+    e.target.closest('tr').classList.toggle('selected', e.target.checked);
+    document.getElementById('selCount').textContent = selected.size;
+    saveSelection();
+  }
+});
+
+document.getElementById('tbody').addEventListener('click', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'A') return;
+  const tr = e.target.closest('tr');
+  if (!tr) return;
+  const cb = tr.querySelector('.cb');
+  cb.checked = !cb.checked;
+  cb.dispatchEvent(new Event('change', { bubbles: true }));
+});
+
+document.querySelectorAll('th[data-col]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (sortCol === col) sortAsc = !sortAsc;
+    else { sortCol = col; sortAsc = true; }
+    render();
+  });
+});
+
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('filterSchool').addEventListener('change', render);
+document.getElementById('filterDiet').addEventListener('change', render);
+document.getElementById('filterLevel').addEventListener('change', render);
+document.getElementById('filterCollegeStudent').addEventListener('change', render);
+document.getElementById('filterInPerson').addEventListener('change', render);
+document.getElementById('filterLinkedin').addEventListener('change', render);
+
+function exportCSV() {
+  const emails = apps.filter(a => selected.has(a.id)).map(a => a.email);
+  if (!emails.length) { alert('No applicants selected'); return; }
+  const blob = new Blob([emails.join('\n') + '\n'], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'accepted_emails.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function clearAll() {
+  if (!confirm('Clear all selections?')) return;
+  selected.clear();
+  saveSelection();
+  render();
+}
+
+load();
+</script>
+</body>
+</html>
